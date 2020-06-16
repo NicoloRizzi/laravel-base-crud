@@ -28,6 +28,7 @@ class AddDescriptionToStudentsTable extends Migration
     {
         Schema::table('students', function (Blueprint $table) {
             $table->dropColumn('description');
+            $table->dropColumn('name');
         });
     }
 }
