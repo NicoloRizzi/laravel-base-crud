@@ -8,7 +8,9 @@ use App\Student;
 class HomeController extends Controller
 {
     public function index() {
+        // Ottieni tutti i record da una tabella
         $students = Student::all();
-        return view ('home');
+        /* dd($students); */
+        return view ('home', compact('students'));
     }
 }
