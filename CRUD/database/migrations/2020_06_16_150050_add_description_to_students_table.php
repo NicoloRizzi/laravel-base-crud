@@ -15,6 +15,7 @@ class AddDescriptionToStudentsTable extends Migration
     {
         Schema::table('students', function (Blueprint $table) {
             $table->text('description');
+            $table->text('name');
         });
     }
 
