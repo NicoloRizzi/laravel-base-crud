@@ -13,4 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//HOMEPAGE
 Route::get('/', 'HomeController@index');
+
+//PRODUCTION HOUSE
+Route::resource('productionhouse', 'ProductionHouse');

@@ -1,23 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <div class="">
-        <h1>Eloquent ORM</h1>
-    </div>
-    <main>
-        <h2>Students list</h2>
-        @foreach ($students as $student)
-        <div class="student">
-            <h4>{{ $student->name }}</h4>
-            <p> {{ $student->description }}</p>
-        </div>
-        @endforeach
-    </main>
-</body>
-</html>
+@extends('layouts.main')
+
+@section('main-content')
+    <h1 class="mb-4">HomePage</h1>
+    <section class="videogames">
+        <h2 class="text-primary">Videogames List:</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Genre</th>
+                    <th>Age</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($videogame as $item)
+                    <tr>
+                        <td>{{ $item->name }}</td>
+                        <td>{{ $item->genre }}</td>
+                        <td>{{ $item->age }}</td>
+                        <td>{{ $item->description }}</td>
+                    </tr>
+                @endforeach 
+            </tbody>
+        </table>
+    </section>
+@endsection
