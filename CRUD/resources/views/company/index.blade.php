@@ -2,7 +2,7 @@
 
 @section('main-content')
     <section class="company mb-4">
-        <h2 class="text-primary">Companiy List:</h2>
+        <h2 class="text-primary">Company List:</h2>
         <table class="table">
             <thead>
                 <tr>
@@ -21,7 +21,9 @@
                     <td>
                     <a class="btn btn-success" href="{{ route('company.show', $company) }}">SHOW</a>
                     </td>
-                    <td>UPDATE</td>
+                    <td>
+                        <a class="btn btn-primary" href="{{ route('company.edit', $company) }}">EDIT</a>
+                    </td>
                     <td>DELETE</td>
                 </tr>
                 @endforeach
