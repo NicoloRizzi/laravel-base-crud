@@ -39,12 +39,20 @@ class CompanyController extends Controller
     {
         $data = $request->all();
         //validation
+        $request->validate([
+            'name' => 'required|unique:company|max:50',
+            'description' => 'required'
+        ]);
+
+        //Save new ITEM on DB
+
         $companyNew = new Company;
         $companyNew->company_name = $data['company_name'];
         $companyNew->company_description = $data['company_description'];
         $saved = $companyNew->save();
-        $company = Company::orderBy('id','desc')->first();
-        return redirect()->route('company.index', $company);
+        dd($saved);
+        /* $company = Company::orderBy('id','desc')->first();
+        return redirect()->route('company.index', $company); */
     }
 
     /**

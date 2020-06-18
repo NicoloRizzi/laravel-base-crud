@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Company extends Model
 {
     // Fillables
-    protected $fillables = [
+    protected $fillable = [
         'company_name',
         'company_description'
     ];

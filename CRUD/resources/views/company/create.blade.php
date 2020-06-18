@@ -2,15 +2,34 @@
 
 @section('main-content')
     <h1 class="mb-4">Create a new Company</h1>
+    @if($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+            <li> {{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 <form action="{{ route('company.store') }}" method="POST">
     @csrf
     @method('POST')
+
         <div class="form-group mt-2">
-            <input type="text" class="form-control" placeholder="Insert company name" name="company_name">
+
+            <label class="mb-2" for="company_name">Company name</label>
+
+            <input type="text" class="form-control" placeholder="Insert company name" name="company_name" id="company_name">
+
         </div>
-        <div class="form-group">
-            <input type="text" class="form-control mt-2" placeholder="Insert description" name="company_description">
+
+        <div class="form-group mt-2">
+
+            <label class="mb-2" for="description">Company description</label>
+
+            <input type="text" class="form-control mt-2" placeholder="Insert description" name="company_description" id="company_description">
+
         </div>
-        <input type="button" class="btn btn-primary mt-2" name="submit" value="Create">
+        <input type="submit" class="btn btn-primary mt-2" name="create" value="Create">
     </form>
 @endsection
