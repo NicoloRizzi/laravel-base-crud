@@ -19,7 +19,7 @@
 
                 <label class="mb-2" for="company_name">Company name</label>
 
-                <input type="text" class="form-control" placeholder="Insert company name" name="company_name" id="company_name">
+                <input type="text" class="form-control" value="{{ @old('company_name') }}" placeholder="Insert company name" name="company_name" id="company_name">
 
             </div>
 
@@ -27,7 +27,7 @@
 
                 <label class="mb-2" for="company-description">Company description</label>
 
-                <input type="text" class="form-control mt-2" placeholder="Insert description" name="company_description" id="company-description">
+                <input type="text" class="form-control mt-2" value="{{ @old('company_description') }}" placeholder="Insert description" name="company_description" id="company-description">
 
             </div>
             

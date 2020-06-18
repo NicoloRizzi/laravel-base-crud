@@ -47,8 +47,9 @@ class CompanyController extends Controller
         //Save new ITEM on DB
 
         $companyNew = new Company;
-        $companyNew->company_name = $data['company_name'];
-        $companyNew->company_description = $data['company_description'];
+        $companyNew->fill($data);
+       /*  $companyNew->company_name = $data['company_name'];
+        $companyNew->company_description = $data['company_description']; */
         $saved = $companyNew->save();
 
         //check to redirect to
