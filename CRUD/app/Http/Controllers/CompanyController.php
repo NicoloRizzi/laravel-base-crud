@@ -40,8 +40,11 @@ class CompanyController extends Controller
         $data = $request->all();
         //validation
         $companyNew = new Company;
-        $companyNew->company_name = $data['id'];
         $companyNew->company_name = $data['company_name'];
+        $companyNew->company_description = $data['company_description'];
+        $saved = $companyNew->save();
+        $company = Company::orderBy('id','desc')->first();
+        return redirect()->route('company.index', $company);
     }
 
     /**
