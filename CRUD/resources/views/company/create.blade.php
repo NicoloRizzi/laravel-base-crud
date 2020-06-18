@@ -11,25 +11,26 @@
             </ul>
         </div>
     @endif
-<form action="{{ route('company.store') }}" method="POST">
-    @csrf
-    @method('POST')
+    <form action="{{ route('company.store') }}" method="POST">
+        @csrf
+        @method('POST')
 
-        <div class="form-group mt-2">
+            <div class="form-group mt-2">
 
-            <label class="mb-2" for="company_name">Company name</label>
+                <label class="mb-2" for="company_name">Company name</label>
 
-            <input type="text" class="form-control" placeholder="Insert company name" name="company_name" id="company_name">
+                <input type="text" class="form-control" placeholder="Insert company name" name="company_name" id="company_name">
 
-        </div>
+            </div>
 
-        <div class="form-group mt-2">
+            <div class="form-group mt-2">
 
-            <label class="mb-2" for="description">Company description</label>
+                <label class="mb-2" for="company-description">Company description</label>
 
-            <input type="text" class="form-control mt-2" placeholder="Insert description" name="company_description" id="company_description">
+                <input type="text" class="form-control mt-2" placeholder="Insert description" name="company_description" id="company-description">
 
-        </div>
-        <input type="submit" class="btn btn-primary mt-2" name="create" value="Create">
+            </div>
+            
+            <input type="submit" class="btn btn-primary mt-2" name="create" value="Create">
     </form>
 @endsection

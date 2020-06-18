@@ -40,8 +40,8 @@ class CompanyController extends Controller
         $data = $request->all();
         //validation
         $request->validate([
-            'name' => 'required|unique:company|max:50',
-            'description' => 'required'
+            'company_name' => 'required|unique:companies|max:50',
+            'company_description' => 'required'
         ]);
 
         //Save new ITEM on DB
@@ -52,10 +52,10 @@ class CompanyController extends Controller
         $saved = $companyNew->save();
 
         //check to redirect to
-       /*  if($saved) {
+        if($saved) {
             $newCompany = Company::find('$companyNew->id');
-            return redirect()->route('company.show', $newCompany);
-        } */
+            return redirect()->route('company.show', $companyNew);
+        }
     }
 
     /**

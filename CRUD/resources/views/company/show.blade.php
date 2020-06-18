@@ -2,23 +2,23 @@
 
 @section('main-content')
     <h1 class="mb-4">
-        {{ $company->name }}
+        {{ $company->company_name }}
     </h1>
     <ul class="list-group">
         <li class="list-group-item">
-            ID: {{ $company->id}}
+            <b>ID:</b> {{ $company->id}}
         </li>
         <li class="list-group-item">
-            NAME: {{ $company->company_name }}
+            <b>NAME:</b> {{ $company->company_name }}
         </li>
         <li class="list-group-item">
-        DESCRIPTION: {{ $company->company_description }}
+            <b>DESCRIPTION:</b> {{ $company->company_description }}
         </li>
         <li class="list-group-item">
-        CREATED AT: {{ $company->created_at }}
+            <b>CREATED AT:</b> {{ $company->created_at }}
         </li>
         <li class="list-group-item">
-            UPDATED AT: {{ $company->updated_at }}
+            <b>UPDATED AT:</b> {{ $company->updated_at }}
         </li>
 
     </ul>
