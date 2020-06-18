@@ -18,7 +18,9 @@
                 <tr>
                     <td> {{ $company->id }} </td>
                     <td> {{ $company->company_name }}</td>
-                    <td>SHOW</td>
+                    <td>
+                    <a class="btn btn-success" href="{{ route('company.show', $company) }}">SHOW</a>
+                    </td>
                     <td>UPDATE</td>
                     <td>DELETE</td>
                 </tr>
