@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 //HOMEPAGE
-Route::get('/', 'HomeController@index');
+Route::get('/', 'HomeController@index')->name('home');
 
-//PRODUCTION HOUSE
-Route::resource('productionhouse', 'ProductionHouse');
+//COMPANY
+Route::resource('company', 'CompanyController');

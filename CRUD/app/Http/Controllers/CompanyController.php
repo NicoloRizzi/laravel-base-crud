@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Company;
 
-class ProductionHouse extends Controller
+class CompanyController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +14,9 @@ class ProductionHouse extends Controller
      */
     public function index()
     {
-        //
+        $companies = Company::all();
+       /*  dd($companies); */
+        return view ('company.index', compact('companies'));
     }
 
     /**
@@ -23,7 +26,7 @@ class ProductionHouse extends Controller
      */
     public function create()
     {
-        //
+        return view ('company.create');
     }
 
     /**
@@ -34,7 +37,11 @@ class ProductionHouse extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        //validation
+        $companyNew = new Company;
+        $companyNew->company_name = $data['id'];
+        $companyNew->company_name = $data['company_name'];
     }
 
     /**

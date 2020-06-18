@@ -8,15 +8,21 @@
     <title>LARAVEL CRUD</title>
 </head>
 <body>
-    <header>
+    <header class="mb-5">
         <nav class="navbar navbar-expand navbar-dark bg-dark">
             <div class="navbrand">
                 <h4>Boolean</h4>
             </div>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Home</a>
+                <a href="{{ route('home') }}" class="nav-link">Home</a>
                 </li>
+                <li class="nav-item">
+                <a href="{{ route('company.index') }}" class="nav-link">Company</a>
+                </li>
+                <a href="{{ route('company.create') }}" class="nav-link">Create a new Company</a>
+                </li>
+            </ul>
             </ul>
         </nav>
     </header>
