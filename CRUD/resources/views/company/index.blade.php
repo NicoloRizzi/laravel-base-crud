@@ -25,7 +25,11 @@
                         <a class="btn btn-primary" href="{{ route('company.edit', $company->id) }}">EDIT</a>
                     </td>
                     <td>
-                        <a href="#" class="btn btn-danger">DELETE</a>
+                        <form action="{{ route('company.destroy', $company->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <input class="btn btn-danger" type="submit" value="DELETE">
+                        </form>
                     </td>
                 </tr>
                 @endforeach

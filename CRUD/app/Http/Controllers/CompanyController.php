@@ -107,9 +107,14 @@ class CompanyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Company $company)
     {
-        //
+        $deleted = $company->delete();
+
+        //redirect to the specified page items
+        if($deleted) {
+            return redirect()->route('company.index');
+        }
     }
 
     /**
