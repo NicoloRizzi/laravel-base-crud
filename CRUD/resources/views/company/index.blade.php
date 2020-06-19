@@ -1,6 +1,11 @@
 @extends('layouts.main')
 
 @section('main-content')
+    @if (session('deleted'))
+        <div class="alert alert-danger">
+            {{ session('deleted') }} successfully deleted
+        </div>
+    @endif
     <section class="company mb-4">
         <h2 class="text-primary">Company List:</h2>
         <table class="table">

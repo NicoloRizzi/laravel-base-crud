@@ -109,11 +109,13 @@ class CompanyController extends Controller
      */
     public function destroy(Company $company)
     {
+        //ref entity to delete
+        $ref= $company->name;
         $deleted = $company->delete();
 
         //redirect to the specified page items
         if($deleted) {
-            return redirect()->route('company.index');
+            return redirect()->route('company.index')->with('deleted', $ref);
         }
     }
 
