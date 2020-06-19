@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('main-content')
-    <h1 class="mb-4">Edit {{ $company->name }}</h1>
+    <h1 class="mb-4">Edit</h1>
     @if($errors->any())
         <div class="alert alert-danger">
             <ul>
@@ -11,7 +11,7 @@
             </ul>
         </div>
     @endif
-    <form action="{{ route('company.edit', $company->id) }}" method="POST">
+    <form action="{{ route('company.update', $company->id) }}" method="POST">
         @csrf
         @method('PATCH')
 
@@ -25,12 +25,12 @@
 
             <div class="form-group mt-2">
 
-                <label class="mb-2" for="company-description">Company description</label>
+                <label class="mt-3" for="company-description">Company description</label>
 
                 <input type="text" class="form-control mt-2" value="{{old('company_description', $company->company_description) }}" placeholder="Insert description" name="company_description" id="company-description">
 
             </div>
             
-            <input type="submit" class="btn btn-primary mt-2" name="create" value="Create">
+            <input type="submit" class="btn btn-primary mt-5" name="create" value="Edit">
     </form>
 @endsection

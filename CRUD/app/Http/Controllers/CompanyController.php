@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Company;
+use Illuminate\Validation\Rule;
 
 class CompanyController extends Controller
 {
@@ -15,7 +16,6 @@ class CompanyController extends Controller
     public function index()
     {
         $companies = Company::all();
-       /*  dd($companies); */
         return view ('company.index', compact('companies'));
     }
 
@@ -35,26 +35,22 @@ class CompanyController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
+    public function store(Request $request) {
+
         $data = $request->all();
+
         //validation
-        $request->validate([
-            'company_name' => 'required|unique:companies|max:50',
-            'company_description' => 'required'
-        ]);
+        $request->validate($this->validationRules());
 
         //Save new ITEM on DB
 
         $companyNew = new Company;
         $companyNew->fill($data);
-       /*  $companyNew->company_name = $data['company_name'];
-        $companyNew->company_description = $data['company_description']; */
         $saved = $companyNew->save();
 
         //check to redirect to
         if($saved) {
-            $newCompany = Company::find('$companyNew->id');
+            $newCompany = Company::find($companyNew->id);
             return redirect()->route('company.show', $companyNew);
         }
     }
@@ -67,7 +63,7 @@ class CompanyController extends Controller
      */
     public function show(Company $company)
     {
-        return view ('company.show', compact('company'));
+        return view ('company.show', compact('company') );
     }
 
     /**
@@ -88,9 +84,13 @@ class CompanyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Company $company)
     {
-        //
+        //GET DATA
+        $data = $request->all();
+
+        //validation
+        $request->validate($this->validationRules($company->id));
     }
 
     /**
@@ -102,5 +102,19 @@ class CompanyController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    /**
+     * Define validation rules
+     */
+    private function validationRules($id = null) {
+        return [
+            'company_name' => [
+                'required',
+                'max:50',
+                Rule::unique('companies')->ignore($id)
+            ],
+            'company_description' => 'required'
+        ];
     }
 }

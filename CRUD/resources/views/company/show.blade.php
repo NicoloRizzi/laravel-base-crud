@@ -6,7 +6,7 @@
     </h1>
     <ul class="list-group">
         <li class="list-group-item">
-            <b>ID:</b> {{ $company->id}}
+            <b>ID:</b> {{ $company->id }}
         </li>
         <li class="list-group-item">
             <b>NAME:</b> {{ $company->company_name }}

@@ -19,12 +19,14 @@
                     <td> {{ $company->id }} </td>
                     <td> {{ $company->company_name }}</td>
                     <td>
-                    <a class="btn btn-success" href="{{ route('company.show', $company) }}">SHOW</a>
+                    <a class="btn btn-success" href="{{ route('company.show', $company->id) }}">SHOW</a>
                     </td>
                     <td>
-                        <a class="btn btn-primary" href="{{ route('company.edit', $company) }}">EDIT</a>
+                        <a class="btn btn-primary" href="{{ route('company.edit', $company->id) }}">EDIT</a>
                     </td>
-                    <td>DELETE</td>
+                    <td>
+                        <a href="#" class="btn btn-danger">DELETE</a>
+                    </td>
                 </tr>
                 @endforeach
             </tbody>
