@@ -88,9 +88,17 @@ class CompanyController extends Controller
     {
         //GET DATA
         $data = $request->all();
-
         //validation
         $request->validate($this->validationRules($company->id));
+
+        //UPDATE DATA
+        $updated = $company->update($data);
+        
+        //CHECK STATUS
+        if($updated) {
+            // REDIRECT TO SPECIFIC PAGE ITEM
+            return redirect()->route('company.show', $company->id);
+        }
     }
 
     /**
